@@ -13,17 +13,24 @@ public class YandexMedian {
                 .toArray(Integer[]::new);
         Integer[] result = new Integer[array.length];
         Arrays.fill(result, -1);
+        Deque<Integer> values = new ArrayDeque<>();
+        Deque<Integer> window = new ArrayDeque<>();
+        window.offer(array[0]);
+        int index;
+        int median;
 
         for (int R = 1; R < array.length; R++) {
-            Deque<Integer> values = new ArrayDeque<>();
-            int index = 1;
-            for (int L = 0; L <= R; L++) {
-                values.offer(array[L]);
+            window.offer(array[R]);
+            index = 1;
+            if (values.size() == window.size() - 1) {
+                values.offer(array[R]);
+            } else {
+                values.clear();
             }
-
+            values.addAll(window);
             while (values.size() > 1) {
-                int med = findMedian(values);
-                if (med == array[R]) {
+                median = findMedian(values);
+                if (median == array[R]) {
                     result[R] = index;
                     break;
                 }
@@ -31,7 +38,6 @@ public class YandexMedian {
                 index++;
             }
         }
-
         for (Integer i : result) {
             System.out.print(i + " ");
         }
@@ -59,7 +65,7 @@ public class YandexMedian {
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int N = Integer.parseInt(br.readLine());
+            String n = br.readLine();
             String str = br.readLine();
             findIndexes(str);
         }

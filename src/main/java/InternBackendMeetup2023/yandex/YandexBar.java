@@ -12,12 +12,19 @@ public class YandexBar {
     public static byte makeCocktail(String[] glass, String[] ingredients) {
         Map<Integer, String> map = new HashMap<>();
         int start = glass.length - 2;
-
+        int amount;
+        String element;
         for (String ingredient : ingredients) {
             String[] parts = ingredient.split(" ");
-            int amount = Integer.parseInt(parts[1]);
+            amount = Integer.parseInt(parts[1]);
+            element = parts[2];
+            if (element.equals("$")) {
+                element = "\\$";
+            } else if (element.equals("\"")) {
+                element = "\"";
+            }
             for (int line = start; line > start - amount; line--) {
-                map.put(line, parts[2]);
+                map.put(line, element);
             }
             start = start - amount;
         }

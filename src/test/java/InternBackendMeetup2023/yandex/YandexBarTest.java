@@ -43,4 +43,16 @@ class YandexBarTest {
         String[] arr2 = {"some 1 (", "thing 2 ?", "really 3 )", "strange 1 ^"};
         assertEquals(0, YandexBar.makeCocktail(array, arr2));
     }
+
+    // \" \\$
+    @Test
+    void cocktail5() {
+        String[] array = {"...|     \\......", "...|      /.....", "../        /....", "...\\        /...",
+                "....|        \\..", "...../      |...", "......\\     /...", ".......|   |....", "....../     \\...",
+                ".......\\_____\\.."};
+        String[] arr2 = new String[1];
+        String s = "some 3 \"";
+        arr2[0] = s;
+        assertEquals(0, YandexBar.makeCocktail(array, arr2));
+    }
 }
