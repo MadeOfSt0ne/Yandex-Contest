@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     private static List<Double> movingAverage(int n, List<Integer> arr, int windowSize) {
-        // ваше решение
+
         List<Double> result = new ArrayList<>();
         double sum = 0.0;
         int s = n - windowSize;
@@ -41,15 +41,13 @@ public class Main {
         }
     }
 
-
     private static int readInt(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());
     }
 
     private static List<Integer> readList(BufferedReader reader) throws IOException {
-        return Arrays.asList(reader.readLine().split(" "))
-                .stream()
-                .map(elem -> Integer.parseInt(elem))
+        return Arrays.stream(reader.readLine().split(" "))
+                .map(Integer::parseInt)
                 .collect(Collectors.toList());
     }
 }

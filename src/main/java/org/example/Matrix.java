@@ -25,19 +25,19 @@ public class Matrix {
     public static void main(String[] args) {
         int[][] arr1 = {{1, 5, 7, 9, 11}, {11, 5, 7, 9, 18}, {13, 5, 0, 9, 11}, {18, 13, 7, 9, 13}, {1, 3, 7, 3, 8}};
         int[][] arr2 = {{1, 5, 7, 9}, {5, 7, 9, 18}, {13, 5, 0, 11}, {13, 7, 9, 13}};
-        for (int[] ints : arr1) {  //идём по строкам
-            for (int j = 0; j < arr1.length; j++) {//идём по столбцам
-                System.out.print(" " + ints[j] + " "); //вывод элемента
+        for (int[] ints : arr1) {                       //идём по строкам
+            for (int j = 0; j < arr1.length; j++) {     //идём по столбцам
+                System.out.print(" " + ints[j] + " ");  //вывод элемента
             }
-            System.out.println();//перенос строки ради визуального сохранения табличной формы
+            System.out.println();                       //перенос строки ради визуального сохранения табличной формы
         }
         System.out.println("Min element = " + findMin(arr1));
 
-        for (int[] ints : arr2) {  //идём по строкам
-            for (int j = 0; j < arr2.length; j++) {//идём по столбцам
-                System.out.print(" " + ints[j] + " "); //вывод элемента
+        for (int[] ints : arr2) {                       //идём по строкам
+            for (int j = 0; j < arr2.length; j++) {     //идём по столбцам
+                System.out.print(" " + ints[j] + " ");  //вывод элемента
             }
-            System.out.println();//перенос строки ради визуального сохранения табличной формы
+            System.out.println();                       //перенос строки ради визуального сохранения табличной формы
         }
         System.out.println("Min element = " + findMin(arr2));
     }
