@@ -4,56 +4,43 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class BullShit {
 
-    public static int findPosition(Integer[] arr) {
-        int targetPosition = 1;
-        int winner = arr[0];
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 1; i < arr.length - 1; i++) {
-            if (valid(arr[i - 1], arr[i], arr[i + 1]) && !map.containsKey(arr[i - 1])) {
-                map.put(arr[i - 1], arr[i]);
+    public static int getPosition(Integer[] distances) {
+        int topPosition = 1;
+        int topDistance = 0;
+        int winnerIndex = 0;
+        int winnerDistance = distances[0];
+        for (int i = 0; i < distances.length; i++) {
+            if (distances[i] > winnerDistance) {
+                winnerIndex = i;
+                winnerDistance = distances[i];
             }
-            if (valid(arr[i - 1], arr[i], arr[i + 1]) && map.containsKey(arr[i - 1])) {
-                if (arr[i] > map.get(arr[i - 1])) {
-                    map.put(arr[i - 1], arr[i]);
+        }
+        for (int j = winnerIndex + 1; j < distances.length - 1; j++) {
+            if (distances[j] % 10 == 5 && distances[j] > distances[j + 1]) {
+                if (distances[j] > topDistance) {
+                    topDistance = distances[j];
                 }
             }
-            if (arr[i] > winner) {
-                winner = arr[i];
-            }
         }
-
-        int vas = 0;
-        if (map.containsKey(winner)) {
-            vas = map.get(winner);
-        }
-
-        if (map.isEmpty() || vas == 0) {
-            System.out.println("No solution: 0");
+        if (topDistance == 0) {
             return 0;
         }
-        for (Integer w : arr) {
-            if (w > vas) {
-                targetPosition++;
+        for (Integer dist : distances) {
+            if (dist > topDistance) {
+                topPosition++;
             }
         }
-        System.out.println("Position = " + targetPosition + ". Weight = " + vas);
-        return targetPosition;
-    }
-
-    private static boolean valid(int maybeWinner, int vasilii, int looser) {
-        return (maybeWinner >= vasilii) && (vasilii > looser) && (vasilii % 10 == 5);
+        return topPosition;
     }
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int amount = readInt(reader);
             Integer[] arr = readList(reader);
-            int result = findPosition(arr);
+            int result = getPosition(arr);
             System.out.println(result);
         }
     }

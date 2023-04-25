@@ -20,8 +20,8 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        int target = 7;
+        int target = 11;
         cache = new long[target + 1];
-        System.out.println("fibonacci number at " + target + " is " + fibonacci(target));
+        System.out.println(target + "th fibonacci number is " + fibonacci(target));
     }
 }
