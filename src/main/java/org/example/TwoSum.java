@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 
 
 public class TwoSum {
+    /**
+     * Решение для отсортированного массива чисел
+     */
     private static List<Integer> twoSum(List<Integer> arr, int targetSum) {
-        /**
-         * Решение для отсортированного массива чисел
-         */
         List<Integer> result = new ArrayList<>();
         int left  = 0;
         int right = arr.size() - 1;
