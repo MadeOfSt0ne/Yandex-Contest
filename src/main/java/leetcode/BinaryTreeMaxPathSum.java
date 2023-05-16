@@ -23,6 +23,7 @@ public class BinaryTreeMaxPathSum {
         answer = Math.max(answer, maxRightPath + maxLeftPath + node.val);
         return Math.max(maxLeftPath, maxRightPath) + node.val;
     }
+
     class TreeNode {
         int val;
         TreeNode left;
