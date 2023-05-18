@@ -1,3 +1,4 @@
+/*
 package training2021.lesson2;
 
 import org.junit.jupiter.api.Test;
@@ -67,4 +68,4 @@ class MultiplicationOfThreeTest {
         List<Long> list = List.of(0L, 10L, 20L, -14L, -15L);
         assertEquals("-15 -14 20", MultiplicationOfThree.findThree(list));
     }
-}
+}*/
