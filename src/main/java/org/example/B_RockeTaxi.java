@@ -30,7 +30,7 @@ public class B_RockeTaxi {
 
         List<Integer> sorted = time.keySet().stream()
                 .sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
+                .toList();
 
         for (Integer integer : sorted) {
             sb.append(time.get(integer)).append(" ");

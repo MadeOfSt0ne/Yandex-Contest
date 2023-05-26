@@ -70,27 +70,10 @@ public class D_Water {
                 .collect(Collectors.toList());
     }
 
-    private static class Order {
-        public Order(int startTime, int endTime, int cost) {
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.cost = cost;
-        }
+    private record Order(int startTime, int endTime, int cost) {
 
-        final int startTime;
-        final int endTime;
-        final int cost;
     }
 
-    private static class Quest {
-        final int startTime;
-        final int endTime;
-        final int type;
-
-        public Quest(int startTime, int endTime, int type) {
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.type = type;
-        }
+    private record Quest(int startTime, int endTime, int type) {
     }
 }
