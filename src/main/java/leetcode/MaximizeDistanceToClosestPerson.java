@@ -1,7 +1,5 @@
 package leetcode;
 
-import javax.swing.plaf.ColorUIResource;
-
 public class MaximizeDistanceToClosestPerson {
     /**
      * Leetcode 849

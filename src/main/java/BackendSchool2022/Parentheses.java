@@ -32,7 +32,7 @@ public class Parentheses {
     public static void main(String[] args) {
         String str1 = "a + b = b + a";
         String str2 = "d + (a + (b + c) = (a + b) + c + d";
-        String str3 = ")ab + c) = ab + bc";
+        String str3 = "(ab + c) = ((ab) + bc";
         System.out.println("index = " + findIndex(str3));
     }
 }
