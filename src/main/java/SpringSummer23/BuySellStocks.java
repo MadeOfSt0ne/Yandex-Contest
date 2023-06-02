@@ -86,8 +86,13 @@ public class BuySellStocks {
             }
         }
         System.out.println(ans.size());
-        for (Transaction t : ans) {
-            System.out.println(t.buy + " " + t.sell);
+        if (ans.size() == 1) {
+            System.out.println(ans.get(0).buy + " " + ans.get(0).sell);
+        } else if (ans.size() == 2) {
+            ans.sort(Comparator.comparingInt(Transaction::buy));
+            System.out.println(ans.get(0).buy + " " + ans.get(0).sell);
+            System.out.println(ans.get(1).buy + " " + ans.get(1).sell);
+
         }
         return 0;
     }

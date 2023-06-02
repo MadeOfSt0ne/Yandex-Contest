@@ -7,32 +7,25 @@ import java.util.*;
 
 public class Relocation {
 
-    static byte sixArrays(int[] cMoney, int[] cEducation, int[] cParents,
-                          int[] fMoney, int[] fEducation, int[] fParents) {
-        for (int i = 0; i < fMoney.length; i++) {
-            int country = 0;
-            for (int j = 0; j < cMoney.length; j++) {
-                if ((fMoney[i] >= cMoney[j] && fEducation[i] >= cEducation[j]) ||
-                        (cParents[j] == 1 && fParents[i] == j + 1)) {
-                    country = j + 1;
-                    break;
-                }
+    static byte findCountry(Set<Country> countries, Friend[] friends) {
+        Map<Friend, Integer> cache = new HashMap<>();
+        for (Friend f : friends) {
+            if (cache.containsKey(f)) {
+                System.out.print(cache.get(f) + " ");
+                continue;
             }
-            System.out.print(country + " ");
-        }
-        return 0;
-    }
-
-    static byte findCountry(List<Country> countries, Friend[] friends, Set<Integer> parents) {
-        for (Friend friend : friends) {
             int country = 0;
             for (Country c : countries) {
-                if ((friend.money >= c.money && friend.education >= c.education) ||
-                        parents.contains(friend.parents)) {
+                if (c.parents == 1 && f.parents == c.number) {
+                    country = f.parents;
+                    break;
+                }
+                if (f.money >= c.money && f.education >= c.education) {
                     country = c.number;
                     break;
                 }
             }
+            cache.put(f, country);
             System.out.print(country + " ");
         }
         return 0;
@@ -41,17 +34,13 @@ public class Relocation {
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             int n = Integer.parseInt(br.readLine());
-            List<Country> countries = new ArrayList<>();
-            Set<Integer> parents = new HashSet<>();
+            Set<Country> countries = new LinkedHashSet<>();
             int[] cMoney = readIntArray(br);
             int[] cEducation = readIntArray(br);
             int[] cParents = readIntArray(br);
             for (int i = 0; i < n; i++) {
-                if (cParents[i] == 1) {
-                    parents.add(i + 1);
-                } else {
-                    countries.add(new Country(cMoney[i], cEducation[i], i + 1));
-                }
+
+                countries.add(new Country(cMoney[i], cEducation[i], cParents[i], i + 1));
             }
             int k = Integer.parseInt(br.readLine());
             Friend[] friends = new Friend[k];
@@ -61,7 +50,7 @@ public class Relocation {
             for (int j = 0; j < k; j++) {
                 friends[j] = new Friend(fMoney[j], fEducation[j], fParents[j]);
             }
-            findCountry(countries, friends, parents);
+            findCountry(countries, friends);
         }
     }
 
@@ -71,6 +60,19 @@ public class Relocation {
                 .toArray();
     }
 
-    record Country(int money, int education, int number) {}
+    record Country(int money, int education, int parents, int number) {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Country country = (Country) o;
+            return money == country.money && education == country.education && parents == country.parents;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(money, education, parents);
+        }
+    }
     record Friend(int money, int education, int parents) {}
 }
