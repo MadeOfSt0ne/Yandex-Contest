@@ -8,8 +8,8 @@ class buySellStocksTest {
 
     @Test
     void getProfit1() {
-        int n = 8;
-        int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
+        int n = 14;
+        int[] prices = {10, 20, 10, 20, 10, 30, 10, 20, 15, 50, 10, 20, 10, 20};
         assertEquals(0, BuySellStocks.getProfit(n, prices));
         // 2 : 1 3, 5 8
     }
@@ -56,8 +56,8 @@ class buySellStocksTest {
 
     @Test
     void getProfit7() {
-        int n = 7;
-        int[] prices = {5, 3, 5, 7, 10, 1, 2};
+        int n = 8;
+        int[] prices = {10, 20, 10, 20, 2, 5, 2, 5};
         assertEquals(0, BuySellStocks.getProfit(n, prices));
         // 2 : 2 5, 6 7
     }
