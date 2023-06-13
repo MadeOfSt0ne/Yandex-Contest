@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.Arrays;
-
 public class ImplementStrStr {
     /**
      * Leetcode 28
