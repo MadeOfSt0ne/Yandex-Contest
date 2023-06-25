@@ -8,9 +8,9 @@ import java.util.Random;
 
 public class MultiplicationOfThree {
 
-    public static String findThree(Long[] numbers) {
+    public static long findThree(Long[] numbers) {
         if (numbers.length == 3) {
-            return numbers[0] + " " + numbers[1] + " " + numbers[2];
+            return numbers[0] * numbers[1] * numbers[2];
         }
         long big;
         long biggest;
@@ -27,11 +27,27 @@ public class MultiplicationOfThree {
             small = numbers[1];
             smallest = numbers[0];
         }
-
-        return "";
+        for (int i = 2; i < numbers.length; i++) {
+            if (numbers[i] >= biggest) {
+                big = biggest;
+                biggest = numbers[i];
+            } else if (numbers[i] > big) {
+                big = numbers[i];
+            } else if (numbers[i] <= smallest) {
+                small = smallest;
+                smallest = numbers[i];
+            } else if (numbers[i] < small) {
+                small = numbers[i];
+            }
+        }
+        if (smallest * small >= big * biggest) {
+            return smallest * small * biggest;
+        }
+        //int thirdMax = quickSelect(numbers, 0, numbers.length - 1, numbers.length - 3);
+        return 0;
     }
 
-    private int quickSelect(int[] nums, int left, int right, int k) {
+    private static int quickSelect(int[] nums, int left, int right, int k) {
         if (left == right) return nums[left];
 
         int pIndex = new Random().nextInt(right - left + 1) + left;
@@ -42,7 +58,7 @@ public class MultiplicationOfThree {
         return quickSelect(nums, left, pIndex-1, k);
     }
 
-    private int partition(int[] nums, int left, int right, int pIndex) {
+    private static int partition(int[] nums, int left, int right, int pIndex) {
         int pivot = nums[pIndex];
         swap(nums, pIndex, right);
         pIndex = left;
@@ -54,7 +70,7 @@ public class MultiplicationOfThree {
         return pIndex - 1;
     }
 
-    private void swap(int[] nums, int x, int y) {
+    private static void swap(int[] nums, int x, int y) {
         int temp = nums[x];
         nums[x] = nums[y];
         nums[y] = temp;
@@ -62,9 +78,9 @@ public class MultiplicationOfThree {
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            int a = Integer.parseInt(reader.readLine());
             Long[] arr = readList2(reader);
-            String result = findThree(arr);
-            System.out.println(result);
+            System.out.println(findThree(arr));
         }
     }
 
