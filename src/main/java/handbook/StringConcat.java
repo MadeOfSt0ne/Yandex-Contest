@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class StringConcat {
+
     static String concat(String s1, String s2) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s1.length(); i++) {
