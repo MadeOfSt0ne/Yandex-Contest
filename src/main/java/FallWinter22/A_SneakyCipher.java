@@ -1,4 +1,4 @@
-package org.example;
+package FallWinter22;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,33 +11,7 @@ public class A_SneakyCipher {
     private static String getCipher(List<Person> persons) {
         StringBuilder sb = new StringBuilder();
 
-        Map<Character, Integer> letters = new HashMap<>();
-            letters.put('A', 1);
-            letters.put('B', 2);
-            letters.put('C', 3);
-            letters.put('D', 4);
-            letters.put('E', 5);
-            letters.put('F', 6);
-            letters.put('G', 7);
-            letters.put('H', 8);
-            letters.put('I', 9);
-            letters.put('J', 10);
-            letters.put('K', 11);
-            letters.put('L', 12);
-            letters.put('M', 13);
-            letters.put('N', 14);
-            letters.put('O', 15);
-            letters.put('P', 16);
-            letters.put('Q', 17);
-            letters.put('R', 18);
-            letters.put('S', 19);
-            letters.put('T', 20);
-            letters.put('U', 21);
-            letters.put('V', 22);
-            letters.put('W', 23);
-            letters.put('X', 24);
-            letters.put('Y', 25);
-            letters.put('Z', 26);
+        Map<Character, Integer> letters = getLetters();
 
         for (Person person : persons) {
             Set<Character> name = new HashSet<>();
@@ -70,9 +44,39 @@ public class A_SneakyCipher {
         return sb.toString().trim();
     }
 
+    private static Map<Character, Integer> getLetters() {
+        Map<Character, Integer> letters = new HashMap<>();
+        letters.put('A', 1);
+        letters.put('B', 2);
+        letters.put('C', 3);
+        letters.put('D', 4);
+        letters.put('E', 5);
+        letters.put('F', 6);
+        letters.put('G', 7);
+        letters.put('H', 8);
+        letters.put('I', 9);
+        letters.put('J', 10);
+        letters.put('K', 11);
+        letters.put('L', 12);
+        letters.put('M', 13);
+        letters.put('N', 14);
+        letters.put('O', 15);
+        letters.put('P', 16);
+        letters.put('Q', 17);
+        letters.put('R', 18);
+        letters.put('S', 19);
+        letters.put('T', 20);
+        letters.put('U', 21);
+        letters.put('V', 22);
+        letters.put('W', 23);
+        letters.put('X', 24);
+        letters.put('Y', 25);
+        letters.put('Z', 26);
+        return letters;
+    }
+
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-
             int n = readInt(reader);
             List<Person> persons = new ArrayList<>(n);
             for (int i = 0; i < n; i++) {
@@ -87,10 +91,8 @@ public class A_SneakyCipher {
                 );
                 persons.add(person);
             }
-
             String result = getCipher(persons);
             System.out.println(result);
-
         }
     }
 

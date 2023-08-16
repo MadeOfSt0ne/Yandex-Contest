@@ -42,6 +42,7 @@ public class Abracadabra {
                 counter += set.size();
             }
         }
+        System.out.println("power = " + counter);
         return counter;
     }
 

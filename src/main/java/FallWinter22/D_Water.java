@@ -1,4 +1,4 @@
-package org.example;
+package FallWinter22;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,6 @@ public class D_Water {
         for (Quest quest : quests) {
             int sum = 0;
             for (Order order : orders) {
-
 
                 if (quest.type == 1) {
                     if (quest.startTime <= order.startTime && order.startTime <= quest.endTime) {

@@ -1,4 +1,4 @@
-package InternDay2023;
+package InternDaySpring23;
 
 import java.io.BufferedReader;
 import java.io.IOException;

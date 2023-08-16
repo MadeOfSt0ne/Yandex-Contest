@@ -10,19 +10,47 @@ public class GameWithChanges {
 
     public static byte changeLetters(String[] words) {
         for (int i = 0; i < words.length - 1; i = i + 2) {
-            System.out.println(changeable(words[i], words[i + 1]) ? "YES" : "NO");
+            System.out.println(isomorphic(words[i], words[i + 1]) ? "YES" : "NO");
         }
         return 0;
     }
 
-    private static boolean changeable(String a, String b) {
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+    // counter = int(input())
+    //
+    //def check_string_pare(s1, s2):
+    //    mapping1 = {}
+    //    mapping2 = {}
+    //    for i in range(len(s1)):
+    //        if s1[i] in mapping1 and mapping1[s1[i]] != s2[i]:
+    //            return 'NO'
+    //        elif s2[i] in mapping2 and mapping2[s2[i]] != s1[i]:
+    //            return 'NO'
+    //        else:
+    //            mapping1[s1[i]] = s2[i]
+    //            mapping2[s2[i]] = s1[i]
+    //    else:
+    //        return 'YES'
+    //
+    //
+    //for i in range(counter):
+    //    s1 = input()
+    //    s2 = input()
+    //    print(check_string_pare(s1, s2))
+    private static boolean isomorphic(String a, String b) {
+        Map<Character, Character> mapA = new HashMap<>();
+        Map<Character, Character> mapB = new HashMap<>();
         for (int i = 0; i < a.length(); i++) {
-            Character change1 = a.charAt(i);
-            Character change2 = b.charAt(i);
-            if (map1.put(change1, i) != map2.put(change2, i)) {
-                return false;
+            if (mapA.containsKey(a.charAt(i))) {
+                if (mapA.get(a.charAt(i)) != b.charAt(i)) {
+                    return false;
+                }
+            } else if (mapB.containsKey(b.charAt(i))) {
+                if (mapB.get(b.charAt(i)) != a.charAt(i)) {
+                    return false;
+                }
+            } else {
+                mapA.put(a.charAt(i), b.charAt(i));
+                mapB.put(b.charAt(i), a.charAt(i));
             }
         }
         return true;

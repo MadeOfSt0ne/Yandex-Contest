@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public class LogWithoutDates {
 
-    private static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public static int countDays(String[] time) {
         int counter = 1;

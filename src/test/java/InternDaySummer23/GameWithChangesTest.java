@@ -8,7 +8,7 @@ class GameWithChangesTest {
 
     @Test
     void changeLetters() {
-        String[] words = {"aabb", "ggtt", "abc", "zyc", "sssss", "ppppp", "xx", "ab"};
+        String[] words = {" ", " ", "ab", "bc", "ssssop", "ppppss", "ab", "xx"};
         assertEquals(0, GameWithChanges.changeLetters(words));
     }
 }
