@@ -69,10 +69,7 @@ public class D_Water {
                 .collect(Collectors.toList());
     }
 
-    private record Order(int startTime, int endTime, int cost) {
+    private record Order(int startTime, int endTime, int cost) {}
 
-    }
-
-    private record Quest(int startTime, int endTime, int type) {
-    }
+    private record Quest(int startTime, int endTime, int type) {}
 }
