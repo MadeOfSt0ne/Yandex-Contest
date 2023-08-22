@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Tree;
 
 public class LCAbinaryTree {
 
@@ -16,7 +16,6 @@ public class LCAbinaryTree {
             val = x;
         }
     }
-
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
