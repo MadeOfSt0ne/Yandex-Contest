@@ -41,7 +41,7 @@ public class B_Diversity {
                     difference++;
                 }
                 mapA.put(card, mapA.getOrDefault(card, 0) + 1);
-                System.out.println("Got 1 A with card = " + card + ". Diff = " + difference);
+                //System.out.println("Got 1 A with card = " + card + ". Diff = " + difference);
             } else if (str[0].equals("1") && str[1].equals("B")) {
                 if (mapA.containsKey(card) && mapB.getOrDefault(card, 0) < mapA.get(card)) {
                     difference--;
@@ -49,7 +49,7 @@ public class B_Diversity {
                     difference++;
                 }
                 mapB.put(card, mapB.getOrDefault(card, 0) + 1);
-                System.out.println("Got 1 B with card = " + card + ". Diff = " + difference);
+                //System.out.println("Got 1 B with card = " + card + ". Diff = " + difference);
             } else if (str[0].equals("-1") && str[1].equals("A")) {
                 if (mapB.containsKey(card) && mapB.get(card) >= mapA.get(card)) {
                     difference++;
@@ -57,7 +57,7 @@ public class B_Diversity {
                     difference--;
                 }
                 mapA.put(card, mapA.get(card) - 1);
-                System.out.println("Got -1 A with card = " + card + ". Diff = " + difference);
+                //System.out.println("Got -1 A with card = " + card + ". Diff = " + difference);
             } else if (str[0].equals("-1") && str[1].equals("B")) {
                 if (mapA.containsKey(card) && mapA.get(card) >= mapB.get(card)) {
                     difference++;
@@ -65,9 +65,9 @@ public class B_Diversity {
                     difference--;
                 }
                 mapB.put(card, mapB.get(card) - 1);
-                System.out.println("Got -1 B with card = " + card + ". Diff = " + difference);
+                //System.out.println("Got -1 B with card = " + card + ". Diff = " + difference);
             }
-            //System.out.print(difference + " ");
+            System.out.print(difference + " ");
         }
         return 0;
     }
