@@ -4,47 +4,28 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
-public class C_SQLRequest {
-
-    public static long countSum(int[][] matrix, String[] restrictions, String[] words) {
+public class OldC {
+    public static long countSum(int[][] matrix, String[] restrictions) {
         long counter = 0;
-        int hi = matrix.length;
-        System.out.println("hi = " + hi);
-        Map<String, Integer> lowMap = new HashMap<>();
-        Map<String, Integer> highMap = new HashMap<>();
-        Map<Integer, String> names = new HashMap<>();
-        for (int i = 0; i < words.length; i++) {
-            names.put(i, words[i]);
-        }
-        for (String restriction : restrictions) {
-            String[] str = restriction.split(" ");
-            String name = str[0];
+        int low = 0;
+        int high = matrix.length;
+        System.out.println("init high = " + high);
+        for (String s : restrictions) {
+            String[] str = s.split(" ");
             int q = Integer.parseInt(str[2]);
-            System.out.println("q = " + q + " name = " + name);
+            System.out.println("q = " + q);
             if (str[1].equals(">")) {
-                int prevLow = lowMap.getOrDefault(name, 0);
-                int low = Math.max(prevLow, q);
-                lowMap.put(name, low);
+                low = Math.max(low, q);
                 System.out.println("low = " + low);
             } else {
-                int prevHigh = highMap.getOrDefault(name, hi);
-                int high = Math.min(prevHigh, q);
-                highMap.put(name, high);
+                high = Math.min(high, q - 1);
                 System.out.println("high = " + high);
             }
         }
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = low; i < high; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                String column = names.get(j);
-                System.out.println("name = " + column + " from " + lowMap.getOrDefault(column, 0) +
-                        " to " + highMap.getOrDefault(column, hi));
-                if (i + 1 > lowMap.getOrDefault(column, 0) && i < highMap.getOrDefault(column, hi)) {
-                    counter += matrix[i][j];
-                    System.out.println("sum = " + counter);
-                }
+                counter += matrix[i][j];
             }
         }
         return counter;
@@ -68,7 +49,7 @@ public class C_SQLRequest {
             for (int i = 0; i < restrictions; i++) {
                 changes[i] = br.readLine();
             }
-            System.out.println(countSum(matrix, changes, words));
+            System.out.println(countSum(matrix, changes));
         }
     }
 

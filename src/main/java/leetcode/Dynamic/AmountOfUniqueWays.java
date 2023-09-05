@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Dynamic;
 
 public class AmountOfUniqueWays {
     /**

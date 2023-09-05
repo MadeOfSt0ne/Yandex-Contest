@@ -1,13 +1,18 @@
 package org.example;
 
-import java.util.Scanner;
+import org.w3c.dom.ls.LSOutput;
 
-public class UniqueLetters {
+import java.util.*;
+
+public class UniqueLetters extends AcidAndrew {
+
+    public static void addss() {
+        UniqueLetters ul = new UniqueLetters();
+        System.out.println(ul instanceof AcidAndrew);
+
+    }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        byte a = scanner.nextByte();
-        byte b = scanner.nextByte();
-        System.out.println(a + b);
+        addss();
     }
 }

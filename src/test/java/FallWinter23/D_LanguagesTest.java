@@ -19,4 +19,11 @@ class D_LanguagesTest {
         int[] workers = {0, 1, 1, 2, 3, 4, 4, 5, 5, 3, 2, 0};
         assertEquals(0, D_Languages.calcBarrier(langs, workers));
     }
+
+    @Test
+    void calcBarrier3() {
+        String[] langs = {"A", "B", "A", "B", "B"};
+        int[] workers = {0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 0};
+        assertEquals(0, D_Languages.calcBarrier(langs, workers));
+    }
 }

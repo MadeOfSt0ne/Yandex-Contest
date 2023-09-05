@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Dynamic;
 
 public class BestTimeToBuyAndSellStock3 {
     /**
@@ -29,7 +29,7 @@ public class BestTimeToBuyAndSellStock3 {
         return profit;
     }
 
-    static int maxProfit2(int[] prices) {
+    public static int maxProfit2(int[] prices) {
         int buy1 = Integer.MAX_VALUE;
         int buy2 = Integer.MAX_VALUE;
         int sell1 = 0;

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Dynamic;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ public class CoinChange {
      * up by any combination of the coins, return -1.
      * You may assume that you have an infinite number of each kind of coin.
      */
-    static int coinChange(int[] coins, int amount) {
+    public static int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, max);

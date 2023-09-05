@@ -34,7 +34,7 @@ public class B_Diversity {
         for (String s : changes) {
             String[] str = s.split(" ");
             int card = Integer.parseInt(str[2]);
-            if (str[0].equals("1") && str[1].equals("A")) {
+            if (str[0].equals("1") && (str[1].equals("A") || str[1].equals("a"))) {
                 if (mapB.containsKey(card) && mapA.getOrDefault(card, 0) < mapB.get(card)) {
                     difference--;
                 } else {
@@ -42,7 +42,7 @@ public class B_Diversity {
                 }
                 mapA.put(card, mapA.getOrDefault(card, 0) + 1);
                 //System.out.println("Got 1 A with card = " + card + ". Diff = " + difference);
-            } else if (str[0].equals("1") && str[1].equals("B")) {
+            } else if (str[0].equals("1") && (str[1].equals("B") || str[1].equals("b"))) {
                 if (mapA.containsKey(card) && mapB.getOrDefault(card, 0) < mapA.get(card)) {
                     difference--;
                 } else {
@@ -50,7 +50,7 @@ public class B_Diversity {
                 }
                 mapB.put(card, mapB.getOrDefault(card, 0) + 1);
                 //System.out.println("Got 1 B with card = " + card + ". Diff = " + difference);
-            } else if (str[0].equals("-1") && str[1].equals("A")) {
+            } else if (str[0].equals("-1") && (str[1].equals("A") || str[1].equals("a"))) {
                 if (mapB.containsKey(card) && mapB.get(card) >= mapA.get(card)) {
                     difference++;
                 } else {
@@ -58,7 +58,7 @@ public class B_Diversity {
                 }
                 mapA.put(card, mapA.get(card) - 1);
                 //System.out.println("Got -1 A with card = " + card + ". Diff = " + difference);
-            } else if (str[0].equals("-1") && str[1].equals("B")) {
+            } else if (str[0].equals("-1") && (str[1].equals("B") || str[1].equals("b"))) {
                 if (mapA.containsKey(card) && mapA.get(card) >= mapB.get(card)) {
                     difference++;
                 } else {
