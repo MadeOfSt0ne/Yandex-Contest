@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Matrix;
 
 public class Search2DMatrixII {
     /**

@@ -8,19 +8,33 @@ import java.util.*;
 public class four {
 
     public static byte stealMoney(int sum, int[] money) {
-        List<Integer> ans = new ArrayList<>();
-        int[][] dp = new int[money.length][3];
-        for (int i = 0; i < money.length; i++) {
-            for (int j = 0; j < 3; j++) {
-                dp[i][j] = money[i] * j;
+        int[] banknote = new int[money.length * 2];
+        int[] stolen = new int[money.length * 2];
+        int amount = 0;
+        int pointer = 0;
+        int k = money.length * 2 - 1;
+        for (int m : money) {
+            banknote[pointer] = m;
+            pointer += 1;
+            banknote[pointer] = m;
+            pointer += 1;
+        }
+        for (int j = 2 * money.length - 1; j >= 0; j--) {
+            if (banknote[j] <= sum && sum >= 0) {
+                sum -= banknote[j];
+                stolen[k--] = banknote[j];
+                amount++;
             }
         }
-
-        for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp[0].length; j++) {
-                System.out.print(dp[i][j] + " ");
+        System.out.println("banknote: " + Arrays.toString(banknote));
+        System.out.println("stolen: " + Arrays.toString(stolen));
+        if (sum == 0) {
+            System.out.println(amount);
+            for (int j = 2 * money.length - 1; j >= 2 * money.length - amount; j--) {
+                System.out.print(stolen[j] + " ");
             }
-            System.out.println();
+        } else {
+            System.out.println("-1");
         }
         return 0;
     }
