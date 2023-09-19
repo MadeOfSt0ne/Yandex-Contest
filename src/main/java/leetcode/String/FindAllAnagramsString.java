@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.String;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ public class FindAllAnagramsString {
      * An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using
      * all the original letters exactly once.
      */
-    static List<Integer> findAnagrams(String s, String p) {
+    public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> ans = new ArrayList<>();
         if (p.length() > s.length()) {
             return ans;
