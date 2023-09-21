@@ -1,5 +1,6 @@
-package leetcode;
+package leetcode.String;
 
+import leetcode.String.IsSubsequence;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

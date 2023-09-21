@@ -1,5 +1,6 @@
-package leetcode;
+package leetcode.Arrays;
 
+import leetcode.Arrays.SubarraySumEqualsK;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

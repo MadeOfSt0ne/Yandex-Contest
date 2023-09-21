@@ -1,9 +1,9 @@
-package leetcode;
+package leetcode.Arrays;
 
+import leetcode.Arrays.LongestSubarrayOf1AfterDeletingOneElement;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class LongestSubarrayOf1AfterDeletingOneElementTest {
 
