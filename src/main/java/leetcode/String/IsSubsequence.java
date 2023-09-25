@@ -12,7 +12,7 @@ public class IsSubsequence {
         if (s.length() > t.length()) {
             return false;
         }
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             return true;
         }
         int counter = 0;
