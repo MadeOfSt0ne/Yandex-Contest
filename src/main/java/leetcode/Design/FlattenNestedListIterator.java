@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Design;
 
 import java.util.ArrayList;
 import java.util.Iterator;

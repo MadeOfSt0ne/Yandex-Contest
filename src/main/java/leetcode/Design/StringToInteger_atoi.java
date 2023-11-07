@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.Design;
 
 public class StringToInteger_atoi {
     /**
