@@ -16,31 +16,22 @@ public class SortVowelsInString {
      * all letters that are not vowels.
      */
 
-    static boolean isVowel(Character c) {
-        return c == 'a' || c == 'e' || c == 'o'|| c == 'u'|| c == 'i'
-            || c == 'A' || c == 'E' || c == 'O'|| c == 'U'|| c == 'I';
-        }
-
     static String sortVowels(String s) {
-        ArrayList<Character> temp = new ArrayList<>();
-
+        List<Character> vowels = List.of('A', 'a', 'e', 'E', 'I', 'i', 'o', 'O', 'U', 'u');
+        Queue<Character> chars = new PriorityQueue<>();
         for (char c : s.toCharArray()) {
-            if (isVowel(c)) {
-                temp.add(c);
+            if (vowels.contains(c)) {
+                chars.add(c);
             }
         }
-        Collections.sort(temp);
-
-        StringBuilder ans = new StringBuilder();
-        int j = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (isVowel(s.charAt(i))) {
-                ans.append(temp.get(j));
-                j++;
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (vowels.contains(c)) {
+                sb.append(chars.poll());
             } else {
-                ans.append(s.charAt(i));
+                sb.append(c);
             }
         }
-        return ans.toString();
+        return sb.toString();
     }
 }
